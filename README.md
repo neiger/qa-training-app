@@ -1,4 +1,5 @@
-# FOR QA TESTING AUTOMATION
+# For QA Testing Automation Training
+
 1) Clone the repo
 2) Create only a local branch. ***DO NOT PUBLISH***
 3) Proceed with the atutomation testing practice
