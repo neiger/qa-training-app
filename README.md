@@ -2,9 +2,9 @@
 
 1) Clone the repo
 2) Create only a local branch. ***DO NOT PUBLISH***
-3) Proceed with the atutomation testing practice
+3) Proceed with the automation testing practice
 4) Once is reviewed and finished. Delete the local branch
-NOTE: If an issue or bug is found, contact your review and raise the issue
+**_NOTE:_** If an issue or bug is found, contact your reviewer in order to raise an issue
 
 # My Calculator
 Features - 
