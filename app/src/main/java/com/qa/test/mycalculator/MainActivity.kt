@@ -5,6 +5,7 @@ import android.util.TypedValue
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         private const val MULTIPLICATION = '*'
         private const val DIVISION = '/'
         private const val PERCENT = '%'
-        private const val POSITIVE_NEGATIVE = "+/-"
         private const val NONE = ' '
     }
 
@@ -78,6 +78,7 @@ class MainActivity : AppCompatActivity() {
             R.id.button_multi -> prepareOperation(MULTIPLICATION)
             R.id.button_divide -> prepareOperation(DIVISION)
             R.id.button_percent -> prepareOperation(PERCENT)
+            R.id.button_positive_negative -> toggleSign()  // Added logic for +/- button
             R.id.button_dot -> appendToInput(".")
             R.id.button_clear -> clearInput()
             R.id.button_equal -> calculateResult()
@@ -161,6 +162,16 @@ class MainActivity : AppCompatActivity() {
             else -> 30f
         }
         inputDisplay.setTextSize(TypedValue.COMPLEX_UNIT_SP, newSize)
+    }
+
+    private fun toggleSign() {
+        val currentText = inputDisplay.text.toString()
+        if (currentText.isNotEmpty()) {
+            val currentValue = currentText.toDoubleOrNull() ?: return
+            val newValue = -currentValue
+            inputDisplay.text = String.format(Locale.getDefault(), "%.2f", newValue).trimEnd('0').trimEnd('.')
+            adjustFontSize()
+        }
     }
 
 }
