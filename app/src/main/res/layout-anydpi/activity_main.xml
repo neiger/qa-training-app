@@ -282,7 +282,7 @@
         app:layout_constraintVertical_bias="0.406" />
 
     <Button
-        android:id="@+id/button_postive_negative"
+        android:id="@+id/button_positive_negative"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@drawable/button"

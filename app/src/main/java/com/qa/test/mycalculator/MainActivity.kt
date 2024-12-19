@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             R.id.button_multi to findViewById(R.id.button_multi),
             R.id.button_divide to findViewById(R.id.button_divide),
             R.id.button_percent to findViewById(R.id.button_percent),
-            R.id.button_postive_negative to findViewById(R.id.button_postive_negative),
+            R.id.button_positive_negative to findViewById(R.id.button_positive_negative),
             R.id.button_dot to findViewById(R.id.button_dot),
             R.id.button_clear to findViewById(R.id.button_clear),
             R.id.button_equal to findViewById(R.id.button_equal)
