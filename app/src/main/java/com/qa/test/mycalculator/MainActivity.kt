@@ -169,9 +169,15 @@ class MainActivity : AppCompatActivity() {
         if (currentText.isNotEmpty()) {
             val currentValue = currentText.toDoubleOrNull() ?: return
             val newValue = -currentValue
-            inputDisplay.text = String.format(Locale.getDefault(), "%.2f", newValue).trimEnd('0').trimEnd('.')
+
+            // Format the number using the localized string resource for %.2f
+            val formattedValue = String.format(Locale.getDefault(), "%.2f", newValue).trimEnd('0').trimEnd('.')
+
+            // Update the inputDisplay text using the concat_text_placeholder
+            inputDisplay.text = getString(R.string.concat_text_placeholder, "", formattedValue)
             adjustFontSize()
         }
     }
+
 
 }
