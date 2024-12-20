@@ -17,9 +17,9 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         // Initialize views
-        usernameEditText = findViewById(R.id.username)
-        passwordEditText = findViewById(R.id.password)
-        loginButton = findViewById(R.id.login_button)
+        usernameEditText = findViewById(R.id.usernameEditText)
+        passwordEditText = findViewById(R.id.passwordEditText)
+        loginButton = findViewById(R.id.loginButton)
 
         // Set login button listener
         loginButton.setOnClickListener {
