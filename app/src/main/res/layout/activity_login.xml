@@ -31,8 +31,12 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:padding="10dp"
+        android:textColorHint="#494646"
         android:textColor="#000000"
-        android:textColorHint="#757575" />
+        app:layout_constraintTop_toBottomOf="@id/appTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
 
     <!-- Password Field -->
     <EditText
@@ -46,8 +50,12 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"
+        android:textColorHint="#494646"
         android:textColor="#000000"
-        android:textColorHint="#757575" />
+        app:layout_constraintTop_toBottomOf="@id/appTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
 
     <!-- Login Button -->
     <Button
