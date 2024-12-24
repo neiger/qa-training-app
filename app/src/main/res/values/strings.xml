@@ -1,11 +1,11 @@
 <resources>
-<!--  Common strings in the main activity  -->
+    <!--  Common strings in the main activity  -->
     <string name="app_name" translatable="false">MyCalculator</string>
     <string name="concat_text_placeholder" translatable="false">%1$s%2$s</string>
     <string name="operation_display" translatable="false">%1$s %2$s</string>
     <string name="error_divide_by_zero" translatable="false">Cannot divide by zero</string>
 
-<!--  UI buttons strings  -->
+    <!--  UI buttons strings  -->
     <string name="_0" translatable="false">0</string>
     <string name="_1" translatable="false">1</string>
     <string name="_2" translatable="false">2</string>
@@ -26,6 +26,6 @@
     <string name="pos_neg" translatable="false">+/-</string>
     <string name="dot" translatable="false">.</string>
 
-<!--  App Login Title Name  -->
+    <!--  App Login Title Name  -->
     <string name="qa_app_tester" translatable="false">QA App Tester</string>
 </resources>
