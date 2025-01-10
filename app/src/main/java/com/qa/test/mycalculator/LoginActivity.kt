@@ -24,8 +24,20 @@ class LoginActivity : AppCompatActivity() {
         // Set login button listener
         loginButton.setOnClickListener {
             // Validate the credentials (this is just a simple example, adjust as needed)
-            val username = usernameEditText.text.toString()
-            val password = passwordEditText.text.toString()
+            val username = usernameEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+
+            // Check for empty fields
+            if (username.isEmpty()) {
+                usernameEditText.error = "Username is required"
+                return@setOnClickListener
+            }
+
+            if (password.isEmpty()) {
+                passwordEditText.error = "Password is required"
+                return@setOnClickListener
+            }
+
 
             if (username == "admin" && password == "1234") {
                 // Successfully logged in, move to the MainActivity (calculator)
