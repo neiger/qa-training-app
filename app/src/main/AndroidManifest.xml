@@ -10,10 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31">
-
-        <!-- Set LoginActivity as the launcher activity -->
         <activity
-            android:name=".LoginActivity"
+            android:name="com.qa.test.training.features.calculator.CalculatorActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
@@ -22,9 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- MainActivity is the calculator activity -->
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

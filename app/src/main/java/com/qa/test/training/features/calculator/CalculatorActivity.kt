@@ -1,13 +1,14 @@
-package com.qa.test.mycalculator
+package com.qa.test.training.features.calculator
 
 import android.os.Bundle
 import android.util.TypedValue
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.qa.test.training.R
 import java.util.Locale
 
-class MainActivity : AppCompatActivity() {
+class CalculatorActivity : AppCompatActivity() {
 
     private lateinit var buttons: Map<Int, Button>
     private lateinit var inputDisplay: TextView
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_calculator)
 
         initializeViews()
         setButtonListeners()
