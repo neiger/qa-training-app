@@ -1,4 +1,4 @@
-package com.qa.test.mycalculator
+package com.qa.test.training
 
 
 import android.view.View
@@ -11,6 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import com.qa.test.training.features.calculator.CalculatorActivity
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
@@ -21,11 +22,11 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class MainActivityTest {
+class CalculatorActivityTest {
 
     @Rule
     @JvmField
-    var mActivityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var mActivityScenarioRule = ActivityScenarioRule(CalculatorActivity::class.java)
 
     @Test
     fun mainActivityTest() {

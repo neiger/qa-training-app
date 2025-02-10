@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
-    tools:context=".MainActivity">
+    tools:context="com.qa.test.training.features.calculator.CalculatorActivity">
 
 
     <Button
@@ -145,7 +145,7 @@
 
     <Button
         android:id="@+id/button0"
-        android:layout_width="200dp"
+        android:layout_width="170dp"
         android:layout_height="80dp"
         android:background="@drawable/new_but"
         android:paddingRight="95sp"

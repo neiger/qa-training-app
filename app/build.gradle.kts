@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.qa.test.mycalculator"
+    namespace = "com.qa.test.training"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.qa.test.mycalculator"
+        applicationId = "com.qa.test.training"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
