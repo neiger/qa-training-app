@@ -26,3 +26,6 @@ build/
 *~
 *.bak
 *.orig
+
+# Mac
+.DS_Store
