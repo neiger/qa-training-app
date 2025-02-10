@@ -5,4 +5,6 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="teal_700">#018786</color>
     <color name="light_navy_blue">#3C4D67</color> <!-- Adjust the color as needed -->
+    <color name="blue_gray">#607D8B</color> <!-- Blue Gray -->
+    <color name="dark_gray">#333333</color> <!-- Dark Gray -->
 </resources>

@@ -1,4 +1,4 @@
-package com.qa.test.mycalculator
+package com.qa.test.training
 
 
 import android.view.View

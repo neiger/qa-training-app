@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.qa.test.training.features.home.HomeActivity
 import com.qa.test.training.R
-import com.qa.test.training.features.calculator.CalculatorActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
 
             if (username == "admin" && password == "1234") {
                 // Successfully logged in, move to the MainActivity (calculator)
-                val intent = Intent(this, CalculatorActivity::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 finish() // Close the LoginActivity so the user can't go back to it
             } else {
