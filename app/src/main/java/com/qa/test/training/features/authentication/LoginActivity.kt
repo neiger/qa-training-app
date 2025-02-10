@@ -1,9 +1,12 @@
 package com.qa.test.training.features.authentication
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 class LoginActivity {
 }
 =======
+=======
+>>>>>>> Stashed changes
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -57,4 +60,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
