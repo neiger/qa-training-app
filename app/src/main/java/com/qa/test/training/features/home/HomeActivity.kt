@@ -12,6 +12,8 @@ import com.qa.test.training.databinding.ActivityHomeBinding
 import com.qa.test.training.features.authentication.LoginActivity
 import com.qa.test.training.features.calculator.CalculatorActivity
 
+import androidx.activity.addCallback
+
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityHomeBinding
@@ -32,6 +34,16 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         binding.navView.setNavigationItemSelectedListener(this)
+
+        // Handling back press using OnBackPressedCallback
+        onBackPressedDispatcher.addCallback(this) {
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
+            } else {
+                isEnabled = false // Disable the callback to let the activity finish
+                finish() // Close the activity (equivalent to onBackPressed)
+            }
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -46,13 +58,5 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
-    }
-
-    override fun onBackPressed() {
-        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
     }
 }
