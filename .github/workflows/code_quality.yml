@@ -1,9 +1,9 @@
-name: Kotlin Lint Check
+name: Code Quality Checks
 
 on: [push, pull_request]
 
 jobs:
-  lint:
+  lint_and_static_analysis:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,4 +20,7 @@ jobs:
 
       - name: Run Ktlint
         run: ./gradlew ktlintCheck
+
+      - name: Run Detekt
+        run: ./gradlew detekt
 
