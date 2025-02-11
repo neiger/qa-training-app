@@ -28,4 +28,9 @@
 
     <!--  App Login Title Name  -->
     <string name="qa_app_tester" translatable="false">QA Training App</string>
+
+    <!--  App Home Title Name  -->
+    <string name="home_title" translatable="false">Menu Options</string>
+    <string name="navigation_drawer_open" translatable="false">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close Navigation Drawer</string>
 </resources>
