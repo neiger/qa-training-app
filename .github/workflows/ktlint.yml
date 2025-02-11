@@ -1,0 +1,23 @@
+name: Kotlin Lint Check
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Grant execute permissions to Gradle
+        run: chmod +x gradlew
+
+      - name: Run Ktlint
+        run: ./gradlew ktlintCheck
+

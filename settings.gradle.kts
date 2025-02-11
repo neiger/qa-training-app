@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "qa-training-app"
 include(":app")
- 
