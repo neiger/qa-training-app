@@ -1,15 +1,21 @@
 package com.qa.test.training.features.calculator
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
 import com.qa.test.training.R
-import com.qa.test.training.features.base.BaseActivity
+import com.qa.test.training.features.authentication.LoginActivity
+import com.qa.test.training.utils.base.BaseActivity
+import com.qa.test.training.utils.manager.Manager
 import java.util.Locale
 
-class CalculatorActivity : BaseActivity() {
+class CalculatorActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, Manager.OnTimeoutListener {
+
+    private lateinit var manager: Manager
 
     private lateinit var buttons: Map<Int, Button>
     private lateinit var inputDisplay: TextView
@@ -31,6 +37,8 @@ class CalculatorActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
+        // Initialize manager and set the timeout listener
+        manager = Manager(this)
 
         initializeViews()
         setButtonListeners()
@@ -75,6 +83,7 @@ class CalculatorActivity : BaseActivity() {
             R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9 -> {
                 appendToInput(buttons[buttonId]?.text.toString())
             }
+
             R.id.button_add -> prepareOperation(ADDITION)
             R.id.button_sub -> prepareOperation(SUBTRACTION)
             R.id.button_multi -> prepareOperation(MULTIPLICATION)
@@ -173,11 +182,45 @@ class CalculatorActivity : BaseActivity() {
             val newValue = -currentValue
 
             // Format the number using the localized string resource for %.2f
-            val formattedValue = String.format(Locale.getDefault(), "%.2f", newValue).trimEnd('0').trimEnd('.')
+            val formattedValue =
+                String.format(Locale.getDefault(), "%.2f", newValue).trimEnd('0').trimEnd('.')
 
             // Update the inputDisplay text using the concat_text_placeholder
             inputDisplay.text = getString(R.string.concat_text_placeholder, "", formattedValue)
             adjustFontSize()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Restart session when activity is in foreground
+        manager.startSession()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Stop session when activity goes to background
+        manager.stopSession()
+    }
+
+    override fun onUserInteraction() {
+        super.onUserInteraction()
+        // Reset the session on user interaction
+        manager.onUserInteraction()
+    }
+
+    override fun onSessionTimeout(lastInteractionTime: Long) {
+        // Log out the user if the session times out
+        val sharedPreferences = getSharedPreferences("user_session", MODE_PRIVATE)
+        sharedPreferences.edit().putBoolean("is_logged_in", false).apply()
+
+        // Redirect to LoginActivity
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()  // Optionally finish HomeActivity    }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        TODO("Not yet implemented")
     }
 }

@@ -3,33 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-        tools:targetApi="31">
+        android:name="com.qa.test.training.utils.App"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+    tools:targetApi="31">
 
-        <activity
-            android:name="com.qa.test.training.features.authentication.LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    <activity
+        android:name="com.qa.test.training.features.authentication.LoginActivity"
+        android:exported="true"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
-        <activity
-            android:name="com.qa.test.training.features.calculator.CalculatorActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+    <activity
+        android:name="com.qa.test.training.features.calculator.CalculatorActivity"
+        android:exported="true"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
 
-        <activity
-            android:name="com.qa.test.training.features.home.HomeActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
-    </application>
+    <activity
+        android:name="com.qa.test.training.features.home.HomeActivity"
+        android:exported="true"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+</application>
 
-</manifest>
+    </manifest>

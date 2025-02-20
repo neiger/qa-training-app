@@ -9,19 +9,24 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.qa.test.training.R
 import com.qa.test.training.databinding.ActivityHomeBinding
-import com.qa.test.training.features.authentication.LoginActivity
 import com.qa.test.training.features.calculator.CalculatorActivity
-import com.qa.test.training.features.base.BaseActivity
+import com.qa.test.training.features.authentication.LoginActivity
+import com.qa.test.training.utils.base.BaseActivity
+import com.qa.test.training.utils.manager.Manager
 
-class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, Manager.OnTimeoutListener {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var manager: Manager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Initialize manager and set the timeout listener
+        manager = Manager(this)
+
         binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_home)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
@@ -45,9 +50,39 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Restart session when activity is in foreground
+        manager.startSession()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Stop session when activity goes to background
+        manager.stopSession()
+    }
+
+    override fun onUserInteraction() {
+        super.onUserInteraction()
+        // Reset the session on user interaction
+        manager.onUserInteraction()
+    }
+
+    override fun onSessionTimeout(lastInteractionTime: Long) {
+        // Log out the user if the session times out
+        val sharedPreferences = getSharedPreferences("user_session", MODE_PRIVATE)
+        sharedPreferences.edit().putBoolean("is_logged_in", false).apply()
+
+        // Redirect to LoginActivity
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()  // Optionally finish HomeActivity
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_calculator -> {
+                // Start CalculatorActivity
                 startActivity(Intent(this, CalculatorActivity::class.java))
             }
             R.id.nav_logout -> {
@@ -55,8 +90,10 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 val sharedPreferences = getSharedPreferences("user_session", MODE_PRIVATE)
                 sharedPreferences.edit().putBoolean("is_logged_in", false).apply()
 
-                // Call BaseActivity to logout
-                redirectToLogin()
+                // Log out and redirect to LoginActivity
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

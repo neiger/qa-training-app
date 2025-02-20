@@ -6,7 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_gray"
+    android:background="@color/light_navy_blue"
     tools:context="com.qa.test.training.features.home.HomeActivity">
 
     <!-- Main Content -->
@@ -30,11 +30,24 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
+        <!-- Title TextView (Positioned below the Toolbar) -->
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:text="@string/qa_app_tester"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
         <!-- Main Content Frame -->
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- Navigation Drawer -->
