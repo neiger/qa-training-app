@@ -1,31 +1,35 @@
-# built application files
+# Ignore all APK and related files
 *.apk
+*.aab
 *.ap_
 
+# Ignore all build-related directories
+**/build/
+**/out/
 
-# files for Android Studio
+# Ignore Android Studio specific files
 .idea/
 *.iml
 
-# local configuration file (sdk path, etc)
+# Ignore local configuration file (SDK path, etc.)
 local.properties
 
-# Gradle cache
+# Ignore Gradle cache and wrapper files
 .gradle/
-build/
+**/.gradle/
+**/.cxx/
 
-# Android Studio and IntelliJ IDEA
-/.idea
-*.iws
-*.iml
-*.ipr
+# Ignore generated files
+captures/
+output.json
+*.lock
 
-# user-specific files
+# Ignore user-specific files
 *.log
 *.swp
 *~
 *.bak
 *.orig
 
-# Mac
+# Ignore macOS system files
 .DS_Store
