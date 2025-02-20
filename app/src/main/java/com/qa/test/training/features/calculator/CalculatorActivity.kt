@@ -6,9 +6,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.qa.test.training.R
+import com.qa.test.training.features.base.BaseActivity
 import java.util.Locale
 
-class CalculatorActivity : AppCompatActivity() {
+class CalculatorActivity : BaseActivity() {
 
     private lateinit var buttons: Map<Int, Button>
     private lateinit var inputDisplay: TextView
@@ -179,6 +180,4 @@ class CalculatorActivity : AppCompatActivity() {
             adjustFontSize()
         }
     }
-
-
 }
