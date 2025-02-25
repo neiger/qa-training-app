@@ -32,5 +32,4 @@
         android:exported="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
 </application>
-
-    </manifest>
+</manifest>
