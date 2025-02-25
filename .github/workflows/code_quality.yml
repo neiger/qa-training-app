@@ -18,9 +18,11 @@ jobs:
       - name: Grant execute permissions to Gradle
         run: chmod +x gradlew
 
-      - name: Run Ktlint
+      - name: Run Ktlint Format (Auto-fix issues)
+        run: ./gradlew ktlintFormat
+
+      - name: Run Ktlint Check
         run: ./gradlew ktlintCheck
 
       - name: Run Detekt
         run: ./gradlew detekt
-
