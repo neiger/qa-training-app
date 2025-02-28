@@ -4,7 +4,6 @@ import android.app.Application
 import com.qa.test.training.utils.manager.Manager
 
 class App : Application() {
-
     lateinit var manager: Manager
 
     override fun onCreate() {

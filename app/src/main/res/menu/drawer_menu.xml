@@ -8,6 +8,13 @@
 <!--            android:icon="@drawable/ic_calculator" />-->
     </group>
 
+    <group android:id="@+id/menu_group_secondary">
+        <item
+            android:id="@+id/nav_register"
+            android:title="Register"/>
+        <!--            android:icon="@drawable/ic_register" />-->
+    </group>
+
     <group android:id="@+id/menu_group_separator">
         <item
             android:id="@+id/nav_logout"
