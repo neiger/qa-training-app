@@ -43,6 +43,7 @@ class UserManager(private val context: Context) {
             val jsonObject = JSONObject(jsonString)
             Pair(jsonObject.getString("username"), jsonObject.getString("password"))
         } catch (e: Exception) {
+            println(e.message)
             Pair("", "") // Fallback return empty instead of hardcoded values
         }
     }
@@ -73,6 +74,7 @@ class UserManager(private val context: Context) {
         return try {
             JSONArray(userFile.readText())
         } catch (e: Exception) {
+            println(e.message)
             JSONArray()
         }
     }

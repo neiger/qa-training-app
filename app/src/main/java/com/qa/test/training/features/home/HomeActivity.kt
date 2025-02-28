@@ -18,7 +18,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var toggle: ActionBarDrawerToggle
-    private lateinit var manager: Manager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
