@@ -3,7 +3,7 @@ package com.qa.test.training.utils.manager
 import android.os.Handler
 import android.os.Looper
 
-class Manager(private val onTimeoutListener: OnTimeoutListener) {
+class Manager(var onTimeoutListener: OnTimeoutListener) {
     interface OnTimeoutListener {
         fun onSessionTimeout(lastInteractionTime: Long)
     }
@@ -24,13 +24,10 @@ class Manager(private val onTimeoutListener: OnTimeoutListener) {
 
     fun onUserInteraction() {
         lastInteractionTime = System.currentTimeMillis()
+        startSession()  // Restart the session timer on user interaction
     }
 
-    fun resetSession() {
-        startSession()
-    }
-
-    fun stopSession() {
+    private fun stopSession() {
         runnable?.let {
             handler.removeCallbacks(it)
         }

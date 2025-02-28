@@ -6,16 +6,20 @@ import android.os.Bundle
 import com.qa.test.training.utils.base.BaseActivity
 import com.qa.test.training.features.home.HomeActivity
 import com.qa.test.training.databinding.ActivityLoginBinding
+import com.qa.test.training.utils.auth.UserManager
 
 class LoginActivity : BaseActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var userManager: UserManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        userManager = UserManager(this)
 
         sharedPreferences = getSharedPreferences("user_session", MODE_PRIVATE)
 
@@ -44,19 +48,23 @@ class LoginActivity : BaseActivity() {
             }
 
             // Check login credentials
-            if (username == "admin" && password == "1234") {
-                // Successfully logged in, store session
-                val editor = sharedPreferences.edit()
-                editor.putBoolean("is_logged_in", true)
-                editor.apply()
-
-                // Start HomeActivity
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
-                finish()
+            if (userManager.isValidUser(username, password)) {
+                userManager.setLoggedIn(true)
+                navigateToHome()
             } else {
                 binding.passwordEditText.error = "Invalid username or password"
             }
         }
+
+        binding.registerButton.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun navigateToHome() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

@@ -31,5 +31,10 @@
         android:name="com.qa.test.training.features.home.HomeActivity"
         android:exported="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+
+        <activity
+            android:name="com.qa.test.training.features.authentication.RegisterActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
 </application>
 </manifest>
