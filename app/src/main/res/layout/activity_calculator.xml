@@ -145,7 +145,7 @@
 
     <Button
         android:id="@+id/button0"
-        android:layout_width="185dp"
+        android:layout_width="165dp"
         android:layout_height="80dp"
         android:background="@drawable/new_but"
         android:paddingRight="95sp"
