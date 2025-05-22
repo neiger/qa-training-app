@@ -9,7 +9,7 @@ class Manager(var onTimeoutListener: OnTimeoutListener) {
     }
 
     companion object {
-        const val TIMEOUT = 10 * 60 * 1000L // 1 minute
+        const val TIMEOUT = 5 * 60 * 1000L // 1 minute
     }
 
     private val handler = Handler(Looper.getMainLooper())
